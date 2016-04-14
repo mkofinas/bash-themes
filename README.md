@@ -7,10 +7,12 @@ in order to be used. To download and use them, paste the following commands in
 your terminal:
 
 ```sh
-mkdir -p ~/.dotfiles
-cd ~/.dotfiles
+mkdir -p ~/.dotfiles/.bash
+cd ~/.dotfiles/.bash
 git clone https://github.com/mkofinas/bash-themes.git
 git clone https://github.com/mkofinas/prompt-support.git
+ln -s ~/.dotfiles/.bash/bash-themes ~/.bash
+ln -s ~/.dotfiles/.bash/prompt-support ~/.bash
 ```
 
 Afterwards, add these lines in your `.bashrc`:
