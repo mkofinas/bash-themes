@@ -7,29 +7,21 @@ in order to be used. To download and use them, paste the following commands in
 your terminal:
 
 ```sh
-mkdir -p ~/.dotfiles/.bash
-cd ~/.dotfiles/.bash
+mkdir -p "${XDG_CONFIG_HOME:-${HOME}/.config}/bash"
+cd "${XDG_CONFIG_HOME:-${HOME}/.config}/bash"
 git clone https://github.com/mkofinas/bash-themes.git
 git clone https://github.com/mkofinas/prompt-support.git
-ln -s ~/.dotfiles/.bash/bash-themes ~/.bash
-ln -s ~/.dotfiles/.bash/prompt-support ~/.bash
 ```
 
 Afterwards, add these lines in your `.bashrc`:
 
 ```sh
-BASH_THEME="two_sides_background"
+BASH_THEME="basic"
 
-if [ -f ~/.dotfiles/bash-themes/${BASH_THEME}.theme.bash ]; then
-    . ~/.dotfiles/bash-themes/${BASH_THEME}.theme.bash
-fi
-
-if [ -f ~/.dotfiles/bash-themes/theme_plugins.bash ]; then
-    . ~/.dotfiles/bash-themes/theme_plugins.bash
+if [ -f ${XDG_CONFIG_HOME:-${HOME}/.config}/bash/bash-themes/${BASH_THEME}.theme.bash ]; then
+    . ${XDG_CONFIG_HOME:-${HOME}/.config}/bash/bash-themes/${BASH_THEME}.theme.bash
 fi
 ```
-
-The `.dotfiles` folder can be substituted by any other name.
 
 ## Provided Themes
 Up to this moment, there are 3 provided themes:

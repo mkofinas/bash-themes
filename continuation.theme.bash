@@ -6,6 +6,8 @@ export GIT_PS1_SHOWUPSTREAM="auto"
 
 PROMPT_DIRTRIM=3
 
+source "${XDG_CONFIG_HOME:-${HOME}/.config}/bash/prompt-support/colors/simple_colors.colors.bash"
+
 function prompt_command() {
   local square="▪"
   local rhombus="❖"

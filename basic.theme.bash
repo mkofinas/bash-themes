@@ -6,6 +6,9 @@ export GIT_PS1_SHOWUPSTREAM="auto"
 
 PROMPT_DIRTRIM=3
 
+source "${XDG_CONFIG_HOME:-${HOME}/.config}/bash/prompt-support/colors/simple_colors.colors.bash"
+source "${XDG_CONFIG_HOME:-${HOME}/.config}/bash/prompt-support/plugins/system/system.plugin.bash"
+
 function prompt_command() {
 
   local git_status
@@ -45,3 +48,5 @@ function prompt_command() {
   fi
 }
 PROMPT_COMMAND=prompt_command;
+PROMPT_COMMAND="set_system_exit_status; $PROMPT_COMMAND"
+
