@@ -30,18 +30,18 @@ function prompt_command() {
 
   # Second Prompt Line
   if [[ $system_exit_wrong == 1 ]]; then
-      L2_PROMPT="$DIM${PROMPT_FG["RED"]}$long_right_arrow$OFF"
+      L2_PROMPT="$DIM${PROMPT_FG["RED"]}⟶  $OFF"
   else
-      L2_PROMPT="$DIM${PROMPT_FG["GREEN"]}$long_right_arrow$OFF"
+      L2_PROMPT="$DIM${PROMPT_FG["GREEN"]}⟶  $OFF"
   fi
 
   PS1=$L1_PROMPT$L2_PROMPT
 
   # Continuation Prompt
   if [[ $system_exit_wrong == 1 ]]; then
-      PS2="$DIM${PROMPT_FG["RED"]}$long_right_arrow$OFF"
+      PS2="$DIM${PROMPT_FG["RED"]}⟶  $OFF"
   else
-      PS2="$DIM${PROMPT_FG["GREEN"]}$long_right_arrow$OFF"
+      PS2="$DIM${PROMPT_FG["GREEN"]}⟶  $OFF"
   fi
 }
 PROMPT_COMMAND=prompt_command;

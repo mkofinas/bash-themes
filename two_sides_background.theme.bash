@@ -22,7 +22,7 @@ function prompt_command() {
   BG_PROMPT="$BOLD${PROMPT_FG["DEFAULT"]}${PROMPT_BG["BLACK"]}$PROMPT_CLEAR_EOL"
 
   local L1_PROMPT_LEFT
-  L1_PROMPT_LEFT="$BOLD${PROMPT_FG["YELLOW"]}$user"
+  L1_PROMPT_LEFT="$BOLD${PROMPT_FG["YELLOW"]} "
   L1_PROMPT_LEFT+="$BOLD${PROMPT_FG["CYAN"]}\u"
   L1_PROMPT_LEFT+="$BOLD${PROMPT_FG["YELLOW"]}@"
   L1_PROMPT_LEFT+="$BOLD${PROMPT_FG["MAGENTA"]}\h"
@@ -55,14 +55,18 @@ function prompt_command() {
   local L2_PROMPT
   # Second Prompt Line
   if [[ $system_exit_wrong == 1 ]]; then
-      L2_PROMPT="$DIM${PROMPT_FG["RED"]}$heavy_long_right_arrow$OFF "
+      L2_PROMPT="$DIM${PROMPT_FG["RED"]}⟶  $OFF"
   else
-      L2_PROMPT="$DIM${PROMPT_FG["GREEN"]}$heavy_long_right_arrow$OFF "
+      L2_PROMPT="$DIM${PROMPT_FG["GREEN"]}⟶  $OFF"
   fi
 
   PS1=$BG_PROMPT$L1_PROMPT$L2_PROMPT
 
   # Continuation Prompt
-  PS2="$DIM${PROMPT_FG["GREEN"]}$heavy_long_right_arrow $BOLD${PROMPT_FG["WHITE"]}...$OFF "
+  if [[ $system_exit_wrong == 1 ]]; then
+      PS2="$DIM${PROMPT_FG["RED"]}⟶  $OFF"
+  else
+      PS2="$DIM${PROMPT_FG["GREEN"]}⟶  $OFF"
+  fi
 }
 PROMPT_COMMAND=prompt_command;
